@@ -3,3 +3,4 @@
 [] Should be able to generate a list of encounters
 
 [] Maybe a die class to support rolling weird combinations of dice
+[] Direct support of shadowdark random encounter generation
