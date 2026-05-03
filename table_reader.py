@@ -57,6 +57,8 @@ def read_table_file(filename):
         else:
             for _ in range(int(begin), int(end)+1):
                 rows.append(result.strip())
+    
+    file.close()
         
     return Table(name, die, rows)
 
