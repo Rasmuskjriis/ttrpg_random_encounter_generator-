@@ -1,18 +1,23 @@
+from abc import abstractmethod, ABC
+import random
+
 import argparse
 
-class Table:
-    def __init__(self, name, die, rows):
-        self.name = name
+class Rollable(ABC):
+    @abstractmethod
+    def roll(self):
+        pass
+
+
+class Table(Rollable):
+    def __init__(self, die, name, rows):
         self.die = die
+        self.name = name
         self.rows = rows
 
     def roll(self):
-        import random
         roll = random.choice(self.rows)
-        if isinstance(roll, Table):
-            return roll.roll()
-        else:
-            return roll
+        return roll
 
     def __str__(self):
         header = f"{self.die} | {self.name}\n"
