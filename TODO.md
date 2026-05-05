@@ -1,4 +1,4 @@
-[] Table should support generating encounters
+[x] Table should support generating encounters
 [x] Add a encounter class
 [] A row can contain more creatures
 [] You should be able to ask for a dice number of creatues
