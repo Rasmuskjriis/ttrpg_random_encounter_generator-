@@ -16,8 +16,8 @@ class Table(Rollable):
         self.rows = rows
 
     def roll(self):
-        roll = random.choice(self.rows)
-        return roll
+        row = random.choice(self.rows)
+        return row
 
     def __str__(self):
         header = f"{self.die} | {self.name}\n"
