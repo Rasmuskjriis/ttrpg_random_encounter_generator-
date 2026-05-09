@@ -14,11 +14,6 @@ t_VLINE = r"\|"
 t_COLON = r":"
 t_COMMA = r","
 
-def t_STRING(t):
-    r"\w+"
-    t.value = t.value
-    return t
-
 def t_INT(t):
     r"\d+"
     t.value = int(t.value)
@@ -27,6 +22,11 @@ def t_INT(t):
 def t_DIE(t):
     r"d\d+"
     t.value = int(t.value[1:])
+    return t
+
+def t_STRING(t):
+    r"\w+"
+    t.value = t.value
     return t
 
 def t_newline(t):
@@ -41,6 +41,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
+# Test of lexer
 with open("default_table", "r") as f:
     data = f.read()
 
@@ -49,5 +50,5 @@ lexer.input(data)
 while True:
     tok = lexer.token()
     if not tok: 
-        break      # No more input
+        break
     print(tok)
