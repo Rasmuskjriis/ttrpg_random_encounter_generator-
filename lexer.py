@@ -1,31 +1,38 @@
 import ply.lex as lex
 
 tokens = (
-    "INT",
-    "DIE",
-    "STRING",
-    "VLINE",
-    "COLON",
+    "NUMBER",
+    "RANGE",
+    "DICE",
+    "SEPARATOR",
     "COMMA",
-    "EOF"
+    "LABEL",
+
 )
 
-t_VLINE = r"\|"
-t_COLON = r":"
+t_SEPARATOR = r"\||:"
 t_COMMA = r","
 
-def t_INT(t):
+def t_RANGE(t):
+    r"\d+-\d+"
+    begin, _, end = t.value.partition("-")
+    t.value = (int(begin), int(end))
+    return t
+
+def t_DICE(t):
+    r"\d*d\d+"
+    amount, _, sides = t.value.partition("d")
+    amount = 1 if amount == "" else int(amount)
+    t.value = (int(amount), int(sides))
+    return t
+
+def t_NUMBER(t):
     r"\d+"
     t.value = int(t.value)
     return t
 
-def t_DIE(t):
-    r"d\d+"
-    t.value = int(t.value[1:])
-    return t
-
-def t_STRING(t):
-    r"\w+"
+def t_LABEL(t):
+    r"[a-zA-Z0-9_][a-zA-Z0-9_ \t]*"
     t.value = t.value
     return t
 
