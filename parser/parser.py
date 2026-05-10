@@ -9,7 +9,6 @@ def p_tables(p):
     if len(p) == 2:
         p[0] = [p[1]]
     else:
-        print(p)
         p[1].append(p[2])
         p[0] = p[1]
 
