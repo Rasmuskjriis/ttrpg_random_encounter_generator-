@@ -48,14 +48,15 @@ def t_error(t):
 
 lexer = lex.lex()
 
-# Test of lexer
-with open("default_table", "r") as f:
-    data = f.read()
+if __name__ == "__main__":
+    # Test of lexer
+    with open("default_table", "r") as f:
+        data = f.read()
 
-lexer.input(data)
+    lexer.input(data)
 
-while True:
-    tok = lexer.token()
-    if not tok: 
-        break
-    print(tok)
+    while True:
+        tok = lexer.token()
+        if not tok: 
+            break
+        print(tok)
