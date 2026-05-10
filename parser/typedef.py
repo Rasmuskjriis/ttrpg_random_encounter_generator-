@@ -7,6 +7,13 @@ class Rollable(ABC):
     def roll(self):
         pass
 
+class Dice(Rollable):
+    def __init__(self, amount, sides):
+        self.amount = amount
+        self.sides = sides
+
+    def roll(self):
+        return sum(random.randint(1, self.sides) for _ in range(self.amount))
 
 class Table(Rollable):
     def __init__(self, die, name, rows):

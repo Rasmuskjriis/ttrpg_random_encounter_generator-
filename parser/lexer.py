@@ -1,5 +1,7 @@
 import ply.lex as lex
 
+from typedef import Dice
+
 tokens = (
     "NUMBER",
     "RANGE",
@@ -22,8 +24,8 @@ def t_RANGE(t):
 def t_DICE(t):
     r"\d*d\d+"
     amount, _, sides = t.value.partition("d")
-    amount = 1 if amount == "" else int(amount)
-    t.value = (int(amount), int(sides))
+    amount = "1" if amount == "" else amount
+    t.value = Dice(int(amount), int(sides))
     return t
 
 def t_NUMBER(t):
