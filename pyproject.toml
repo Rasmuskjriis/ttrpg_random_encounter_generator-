@@ -1,0 +1,9 @@
+[project]
+name = "ttrpg-random-encounter-generator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "ply>=3.11",
+]
