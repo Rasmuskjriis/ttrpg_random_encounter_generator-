@@ -10,4 +10,4 @@
 
 [] Maybe a die class to support rolling weird combinations of dice
 [] Direct support of shadowdark random encounter generation
-[] Could be cool with to read the table files with a lexer
+[x] Could be cool with to read the table files with a lexer

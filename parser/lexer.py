@@ -9,7 +9,6 @@ tokens = (
     "SEPARATOR",
     "COMMA",
     "LABEL",
-
 )
 
 t_SEPARATOR = r"\||:"
